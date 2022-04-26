@@ -11,14 +11,12 @@ function signup(e) {
     console.log(userDetails)
     axios.post('http://localhost:8000/user/signup',userDetails).then(res => {
         if(res.status === 201){
-            window.location.href = "../Login/login.html"
-            alert('sign up succsefully');
-        } else {
-            throw new Error('Failed to login')
+            window.location.href = "../login/login.html"
+            alert(`${res.data.message}`);
         }
     }).catch(err => {
-        alert('User already exist!! Please Sign In')
-        console.log(err,'this is not done');
-        alert('User already exist!! Please Sign In')
+        // alert('User already exist!! Please Sign In')
+        // window.location.href = "../login/login.html"
+        document.body.innerHTML += `<div style="color:red;">${err} <div>`;
     })
 }

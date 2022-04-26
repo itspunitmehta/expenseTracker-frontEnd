@@ -7,18 +7,17 @@ function signin(e) {
         password: form.get("password")  
     }
     console.log(userDetails)
-    axios.get('http://localhost:8000/user/signin',userDetails).then(res => {
+    axios.post('http://localhost:8000/user/signin',userDetails).then(res => {
         if(res.status === 200){
             console.log(res.data);
-            // window.location.href = "../Login/login.html"
+            localStorage.setItem('token', res.data.token);
+            // localStorage.setItem('userDetails', JSON.stringify(res.data.user))
+            window.location.href = "../expense/userhome.html"
             // alert('sign up succsefully');
         } else {
             throw new Error('Failed to login')
         }
-        
     }).catch(err => {
-        alert('User already exist!! Please Sign In')
-        console.log(err,'this is not done');
-        alert('User already exist!! Please Sign In')
+        console.log(err);
     })
 }
