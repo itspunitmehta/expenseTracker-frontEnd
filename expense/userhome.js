@@ -1,4 +1,12 @@
 const loginToken = localStorage.getItem('token');
+const btn = document.getElementById('btn');
+const nav = document.getElementById('nav');
+
+btn.addEventListener('click', ()=>{
+    nav.classList.toggle('active');
+    btn.classList.toggle('active');
+})
+
 function addExpense(event){
     event.preventDefault();
     const form = new FormData(event.target);
@@ -42,8 +50,6 @@ window.addEventListener('load',()=>{
         if(response.status===200){
             if(response.data.premium === true){
                 document.body.classList.add('dark')
-                document.body.classList.add('dark')
-
             }
             response.data.expenses.forEach(expense => {
                 addNewExpensetoDOM(expense)
@@ -130,3 +136,4 @@ document.getElementById('rzp-button1').onclick = async function (e) {
   alert(response.error.metadata.payment_id);
  });
 }
+
