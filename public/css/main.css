@@ -93,3 +93,40 @@ body {
     color: #fff;
     font-weight: 700;
 }
+
+#expense-btn {
+    margin: auto;
+    border-radius: 4px;
+    padding: 8px 8px;
+    /* width: 75%; */
+    background-color: #8c4848;
+    color: white;
+}
+
+.container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+body.dark {
+    background-color: black;
+    color: white;
+}
+
+.container label {
+    user-select: none;
+}
+.container input{
+    visibility: hidden;
+}
+
+.nav-bar-dark{
+    background-color: rgb(219, 35, 35);
+    position: fixed;
+    top: 0;
+    padding: 0 5%;
+    width: 100%;
+    z-index: 150;
+    height: 10vh;
+}

@@ -15,6 +15,7 @@
         </a>
         <div class="end-links">
             <a class="sign-in" href="../login/login.html">LogOut</a>
+            <button class="sign-in" id="rzp-button1">Buy Premium</button>
        </div> 
      </nav>
     <form onsubmit="addExpense(event)">
@@ -30,11 +31,15 @@
             <option value="electricity">Electricity</option>
             <option value="other">Other</option>
         </select>
-        <button>Add Expense</button>
+        <button id="expense-btn">Add Expense</button>
     </form>
+    <div class="container">
+        <input type="checkbox" id="toggle" name="toggle"><label for="toggle">Dark Theme</label>
+    </div>
     <ul id='listOfExpenses'>
 
     </ul>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src='./userhome.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
