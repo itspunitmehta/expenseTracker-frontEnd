@@ -1,6 +1,7 @@
 const loginToken = localStorage.getItem('token');
 const btn = document.getElementById('btn');
 const nav = document.getElementById('nav');
+const menuUl = document.getElementById('menu');
 
 btn.addEventListener('click', ()=>{
     nav.classList.toggle('active');
@@ -50,6 +51,7 @@ window.addEventListener('load',()=>{
         if(response.status===200){
             if(response.data.premium === true){
                 document.body.classList.add('dark')
+            menuUl.innerHTML+=`<li><a href="../leaderboard/leaderboard.html">LeaderBoard</a></li>`
             }
             response.data.expenses.forEach(expense => {
                 addNewExpensetoDOM(expense)
