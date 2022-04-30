@@ -34,11 +34,11 @@
             <input type="text" name="description" required> </input>
             <label for="category">Choose a category:</label>
             <select id="category" name="category">
-                <option value="Movie">Movie</option>
-                <option value="fuel">Fuel</option>
-                <option value="food">Groceries</option>
-                <option value="electricity">Electricity</option>
-                <option value="other">Other</option>
+                <option value="Movie">Movies</option>
+                <option value="Fuel">Fuel</option>
+                <option value="Food">Groceries</option>
+                <option value="Electricity">Electricity</option>
+                <option value="Others">Others</option>
             </select>
             <button id="expense-btn">Add Expense</button>
         </form>
@@ -49,6 +49,7 @@
     <ul id='listOfExpenses'>
 
     </ul>
+    <button onclick="download()" id="downloadexpense" class="download-btn">Download File</button>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src='./userhome.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

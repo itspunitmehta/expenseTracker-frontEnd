@@ -38,8 +38,8 @@ function addNewExpensetoDOM(expense){
     const expenseElemId = `expense-${expense.id}`;
     parentElement.innerHTML += `
         <li id=${expenseElemId}>
-            ${expense.amount} - ${expense.category} - ${expense.description}
-            <button onclick='deleteExpense(event, ${expense.id})'>
+            $${expense.amount} - ${expense.category} - ${expense.description}
+            <button class="delete-btn" onclick='deleteExpense(event, ${expense.id})'>
                 Delete Expense
             </button>
         </li>`
@@ -89,6 +89,26 @@ function showError(err){
 function removeExpensefromUI(expenseid){
     const expenseElemId = `expense-${expenseid}`;
     document.getElementById(expenseElemId).remove();
+}
+
+function download(){
+    axios.get('http://localhost:8000/user/download', { headers: {"Authorization" : loginToken} })
+    .then((response) => {
+        if(response.status === 201){
+            //the bcakend is essentially sending a download link
+            //  which if we open in browser, the file would download
+            var a = document.createElement("a");
+            a.href = response.data.fileUrl;
+            a.download = 'myexpense.csv';
+            a.click();
+        } else {
+            throw new Error(response.data.message)
+        }
+
+    })
+    .catch((err) => {
+        showError(err)
+    });
 }
 
 
