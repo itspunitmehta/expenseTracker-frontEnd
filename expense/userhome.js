@@ -64,7 +64,7 @@ window.addEventListener('load',()=>{
     .catch(err=>{
         console.log(err);
         alert('Please Log-In First');
-        window.location.href = "../login/login.html"
+        // window.location.href = "../login/login.html"
     })
 })
 
@@ -94,7 +94,7 @@ function removeExpensefromUI(expenseid){
 function download(){
     axios.get('http://localhost:8000/user/download', { headers: {"Authorization" : loginToken} })
     .then((response) => {
-        if(response.status === 201){
+        if(response.status === 200){
             //the bcakend is essentially sending a download link
             //  which if we open in browser, the file would download
             var a = document.createElement("a");
@@ -104,9 +104,9 @@ function download(){
         } else {
             throw new Error(response.data.message)
         }
-
     })
     .catch((err) => {
+        console.log(err);
         showError(err)
     });
 }
